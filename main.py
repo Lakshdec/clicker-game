@@ -1,27 +1,29 @@
 import asyncio
 from pyscript import document
 
-# Global score variable
+# Start score at 0
 score = 0
 
+# This runs when you click the button
 def handle_click(event):
     global score
     score += 1
-    # Update the text on the webpage
-    document.querySelector("#score-display").innerText = f"Score: {score}"
+    # Update the number on the screen
+    document.querySelector("#score-display").innerText = str(score)
 
 async def main():
-    # Hide the loading message once Python starts
-    document.querySelector("#loading-msg").style.display = "none"
-    
-    # Find the button and tell it what to do when clicked
+    # Find the button in HTML
     btn = document.querySelector("#click-btn")
+    
+    # Tell the button to run our function when clicked
     btn.onclick = handle_click
     
-    # The "Game Loop" - this keeps the script alive
+    # Change status text when ready
+    document.querySelector("#status").innerText = "Ready to Play!"
+    
+    # The "Game Loop" - keeps the script running in the browser
     while True:
-        # await asyncio.sleep(0) allows the browser to process clicks
         await asyncio.sleep(0.1)
 
-# This line starts the game loop
+# Start the game loop
 asyncio.run(main())
