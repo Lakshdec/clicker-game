@@ -20,4 +20,6 @@ async def main():
     while True:
         await asyncio.sleep(0.1)
 
-asyncio.run(main())
+# FIXED: Just call the function with 'await' 
+# instead of using asyncio.run()
+await main()
