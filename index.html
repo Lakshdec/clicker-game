@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Python Clicker Game</title>
-    
-  
+    <title>My Python Clicker</title>
+    <!-- Loads PyScript -->
     <link rel="stylesheet" href="https://pyscript.net">
     <script type="module" src="https://pyscript.net"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background: #f0f0f0; }
+        #click-btn { padding: 20px 40px; font-size: 24px; cursor: pointer; background: #4CAF50; color: white; border: none; border-radius: 10px; }
+        #score-display { font-size: 48px; margin-top: 20px; }
+    </style>
 </head>
 <body>
+    <h1>Python Clicker Game</h1>
+    
+    <!-- This is your game button -->
+    <button id="click-btn">CLICK ME!</button>
+    
+    <!-- This shows your score -->
+    <div id="score-display">Score: 0</div>
 
-    <h1>My Clicker Game</h1>
-    <p>Loading the Python engine... (this might take a few seconds)</p>
+    <p id="loading-msg">Loading Python engine...</p>
 
-    <script type="py" src="./main.py" config='{"packages":["pygame-ce"]}'></script>
-
+    <!-- Connects to your main.py file -->
+    <script type="py" src="./main.py"></script>
 </body>
 </html>
