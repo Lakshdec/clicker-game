@@ -5,31 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Python Clicker Game</title>
     
-    <!-- Latest PyScript Version -->
+    <!-- Using the absolute latest PyScript links -->
     <link rel="stylesheet" href="https://pyscript.net">
     <script type="module" src="https://pyscript.net"></script>
 
     <style>
-        body { font-family: 'Arial', sans-serif; text-align: center; background-color: #e3f2fd; padding-top: 100px; }
+        body { font-family: sans-serif; text-align: center; background-color: #f0f8ff; padding-top: 50px; }
         #click-btn { 
-            padding: 25px 50px; font-size: 30px; cursor: pointer; 
-            background-color: #1e88e5; color: white; border: none; 
-            border-radius: 15px; box-shadow: 0 4px #0d47a1;
+            padding: 20px 40px; font-size: 25px; cursor: pointer; 
+            background-color: #2196F3; color: white; border: none; border-radius: 12px;
         }
-        #click-btn:active { box-shadow: 0 0 #0d47a1; transform: translateY(4px); }
-        #score-display { font-size: 60px; color: #0d47a1; margin-top: 20px; font-weight: bold; }
-        #status { color: #555; margin-top: 10px; }
+        #score-display { font-size: 50px; margin: 20px; color: #0D47A1; }
+        #loading-text { color: #666; font-style: italic; }
     </style>
 </head>
 <body>
 
-    <h1>My Awesome Clicker</h1>
-    <button id="click-btn">CLICK!</button>
+    <h1>My Python Clicker</h1>
     <div id="score-display">0</div>
-    <p id="status">Loading Python... Please wait 10 seconds.</p>
+    <button id="click-btn">CLICK ME!</button>
+    <p id="loading-text">Loading Python... please wait...</p>
 
-    <!-- This tells PyScript to fetch your python file -->
+    <!-- This "config" block tells the browser to go grab your main.py file -->
     <script type="py" src="./main.py" config='{"files": ["main.py"]}'></script>
 
 </body>
 </html>
+c
