@@ -1,28 +1,27 @@
-import pygame
+import asyncio
+from pyscript import document
 
-pygame.init()
-
-screen = pygame.display.set_mode((400, 400))
+# Global score variable
 score = 0
-my_rect = pygame.Rect(100, 100, 50, 50)
-font = pygame.font.SysFont("Arial", 32)
 
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if my_rect.collidepoint(event.pos):
-                score += 1
+def handle_click(event):
+    global score
+    score += 1
+    # Update the text on the webpage
+    document.querySelector("#score-display").innerText = f"Score: {score}"
 
-    screen.fill((255, 255, 255))
+async def main():
+    # Hide the loading message once Python starts
+    document.querySelector("#loading-msg").style.display = "none"
     
-    score_surface = font.render(f"Score: {score}", True, (0, 0, 0))
-    screen.blit(score_surface, (10, 10))
+    # Find the button and tell it what to do when clicked
+    btn = document.querySelector("#click-btn")
+    btn.onclick = handle_click
     
-    pygame.draw.rect(screen, (255, 0, 0), my_rect)
-    pygame.display.flip()
+    # The "Game Loop" - this keeps the script alive
+    while True:
+        # await asyncio.sleep(0) allows the browser to process clicks
+        await asyncio.sleep(0.1)
 
-pygame.quit()
+# This line starts the game loop
+asyncio.run(main())
